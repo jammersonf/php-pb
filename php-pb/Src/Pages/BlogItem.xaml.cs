@@ -41,24 +41,7 @@ namespace php_pb.Src.Pages
             if (Blog != null)
             {
                 tTitle.Text = Blog.Title;
-                Browser.NavigateToString(
-                    "<html><head> <link href='/assets/colors-dark.css' rel='stylesheet'>"+
-                        "<link href='/assets/fancybox/jquery.fancybox.css' rel='stylesheet'>"+
-                        "<link href='/assets/style.css' rel='stylesheet'>"+
-                        "<script type='text/javascript' src='http://w.sharethis.com/button/buttons.js'></script>"+
-                        "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"+
-                          "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"+
-                          "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"+
-                          "})(window,document,'script','//www.google-analytics.com/analytics.js','ga');"+
-                          "ga('create', 'UA-28634448-2', 'php-pb.net');"+
-                          "ga('send', 'pageview');</script>"+
-                     "<script src='/assets/jquery.min.js'></script>"+
-                     "<script src='/assets/jquery.mobilemenu.min.js'></script>"+
-                     "<script src='/assets/jquery.fancybox.pack.js'></script>"+
-                    "</head><body style='background-color:#ccc'>"+
-                    Blog.Description+
-                    "</body></html>"
-                    );
+                Browser.NavigateToString(Blog.Description);
             }
         }
     }

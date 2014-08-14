@@ -14,7 +14,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,13 +22,13 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="PHP-PB" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Name="tTitle" Text="Nome item" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="PHP-PB" Style="{StaticResource PhoneTextNormalStyle}" Foreground="Black"/>
+            <TextBlock Name="tTitle" Text="Nome item" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="Black"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:WebBrowser Name="Browser" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <phone:WebBrowser Name="Browser" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
             <StackPanel Name="Progress" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="Carregando" />
                 <ProgressBar Width="100" Height="10" IsIndeterminate="True"/>

@@ -11,6 +11,7 @@ using php_pb.Resources;
 using php_pb.Src.Classes;
 using php_pb.Src.Pages;
 using System.Diagnostics;
+using Windows.System;
 
 namespace php_pb
 {
@@ -21,6 +22,38 @@ namespace php_pb
         {
             InitializeComponent();
             ListBox.SelectionChanged += OnSelectionChanged;
+            this.tFace.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(hubFace);
+            this.tTwit.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(hubTwit);
+            this.tFeed.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(hubFeed);
+            this.tGit.Tap += new EventHandler<System.Windows.Input.GestureEventArgs>(hubGit);
+        }
+
+        private async void hubGit(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            string uritoLaunch = @"https://github.com/php-pb";
+            var uri = new Uri(uritoLaunch);
+            await Windows.System.Launcher.LaunchUriAsync(uri);
+        }
+
+        private async void hubFeed(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            string uritoLaunch = @"http://php-pb.net/feed.xml";
+            var uri = new Uri(uritoLaunch);
+            await Windows.System.Launcher.LaunchUriAsync(uri);
+        }
+
+        private async void hubTwit(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            string uritoLaunch = @"https://twitter.com/phppb";
+            var uri = new Uri(uritoLaunch);
+            await Windows.System.Launcher.LaunchUriAsync(uri);
+        }
+
+        private async void hubFace(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            string uritoLaunch = @"https://www.facebook.com/groups/176265189091628";
+            var uri = new Uri(uritoLaunch);
+            await Windows.System.Launcher.LaunchUriAsync(uri);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -59,6 +92,15 @@ namespace php_pb
             {
                 //passa o objeto como parametro
                 page.Blog = this.Blog;
+            }
+        }
+
+        private void OnClickAtualizar(object sender, EventArgs e)
+        {
+            int index = blogphp.SelectedIndex;
+            if (index == 0)
+            {
+                BlogService.GetBlogAsync(AtualizarBlog, false);
             }
         }
     }
